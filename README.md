@@ -44,7 +44,7 @@ Run the code
    ```bash
    uvicorn app:app --reload
    ```
-3.Test via CURL
+3. Test via CURL
 
    ```bash
    curl -X POST http://127.0.0.1:8000/chat \
@@ -53,6 +53,7 @@ Run the code
    ```
 
 Project Directory Structure
+```
 ├── app.py            # FastAPI entrypoint
 ├── graph.py          # LangGraph workflow definition
 ├── db.py             # SQLAlchemy data access (SQLite)
@@ -61,7 +62,7 @@ Project Directory Structure
 ├── prompt.py         # Reusable PromptTemplate for “Capper”
 ├── requirements.txt  # Dependency list
 └── tests/            # Pytest suite (unit & integration)
-
+```
 API Endpoints
 
 POST /chat
