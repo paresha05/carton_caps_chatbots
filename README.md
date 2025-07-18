@@ -53,7 +53,6 @@ Run the code
    ```
 
 Project Directory Structure
-
 ├── app.py            # FastAPI entrypoint
 ├── graph.py          # LangGraph workflow definition
 ├── db.py             # SQLAlchemy data access (SQLite)
