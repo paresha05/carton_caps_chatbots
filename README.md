@@ -65,13 +65,13 @@ Project Directory Structure
 └── tests/            # Pytest suite (unit & integration)
 ```
 API Endpoints
-
+```
 POST /chat
 Request: `{ user_id: int, conversation_id?: str, message: str }`
 Response: `{ conversation_id: str, turn: int, response: str, suggested_actions?: [] }`
 GET /history/{user_id}
 Fetch past chat turns for UI replay.
-
+```
 LangGraph orchestrates:
   1. Load user context & history
   2. Retrieve PDF snippets via Chroma
