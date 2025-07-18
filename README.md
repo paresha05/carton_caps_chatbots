@@ -26,14 +26,11 @@ pip install -r requirements.txt
 
 Data
 
-Place the provided assets under `data/`:
-
-```text
+Place the provided assets under data/`:
 data/
 ├── Carton_Caps_Data.sqlite
 ├── “Carton Caps Referral FAQs.pdf”
 └── “Carton Caps Referral Program Rules.pdf”
-```
 
 Run the code
 

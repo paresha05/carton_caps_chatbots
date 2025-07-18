@@ -5,3 +5,4 @@ __pycache__/
 data/Carton_Caps_Data.sqlite    # optional: you may choose to exclude & host data elsewhere
 .DS_Store
 .env
+README
