@@ -1,4 +1,4 @@
-#Capper – Carton Caps AI Chatbot Prototype
+****Capper – Carton Caps AI Chatbot Prototype****
 
 Welcome to Capper, the AI‑powered conversational assistant proof‑of‑concept for Carton Caps. 
 Capper helps users get personalized product recommendations and understand the referral program via natural, in-app chat.
