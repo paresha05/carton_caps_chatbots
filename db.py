@@ -1,3 +1,8 @@
+"""
+Database access layer for Capper chatbot.
+Handles user context, chat history, and saving conversations using SQLAlchemy and SQLite.
+"""
+
 from sqlalchemy import create_engine, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -9,12 +14,17 @@ engine = create_engine(f"sqlite:///{DB_PATH}", connect_args={"check_same_thread"
 SessionLocal = sessionmaker(bind=engine)
 
 
+# Initialize database tables
 def init_db():
     Base.metadata.create_all(bind=engine)
 
+
+# Get a new DB session
 def get_db_session():
     return SessionLocal()
 
+
+# Retrieve user context from DB
 def get_user_context(user_id):
     session = get_db_session()
     user_row = (
@@ -42,6 +52,8 @@ def get_user_context(user_id):
         "created_at":  user_row["created_at"],
     }
 
+
+# Retrieve chat history for a user
 def get_chat_history(user_id):
     session = get_db_session()
     results = session.execute(
@@ -59,6 +71,8 @@ def get_chat_history(user_id):
             temp = None
     return history
 
+
+# Save user and bot messages to chat history
 def save_chat(state):
     session = get_db_session()
     now = datetime.utcnow().isoformat()

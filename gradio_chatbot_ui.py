@@ -1,10 +1,13 @@
+"""
+Gradio UI for Capper chatbot.
+Sends user messages to FastAPI backend and displays responses.
+"""
 import gradio as gr
 import requests
 
 API_URL = "http://127.0.0.1:8000/chat"
 
-# Function to send user input and receive response
-
+# System prompt for the chatbot
 SYSTEM_PROMPT = """
 Hi! I'm Capper, your personal Carton Caps assistant.
 Ask me a question, and I'll do my best to help you.
@@ -12,6 +15,9 @@ If there's anything I can't help you with, I'll direct you to someone who can.
 """
 
 def chat_with_bot(user_id, user_message):
+    """
+    Sends user message to backend API and returns bot reply.
+    """
     payload = {"user_id": user_id, "message": user_message}
     response = requests.post(API_URL, json=payload)
     if response.status_code == 200:
@@ -28,8 +34,10 @@ with gr.Blocks() as demo:
     user_input = gr.Textbox(placeholder="Send a message...", label="Message")
     send_button = gr.Button("Send")
 
-    
     def respond(user_id, message, chat_history):
+        """
+        Handles user input, updates chat history with bot response.
+        """
         bot_response = chat_with_bot(user_id, message)
         chat_history = chat_history + [(message, bot_response)]
         return "", chat_history

@@ -1,3 +1,9 @@
+"""
+LLM integration for Capper chatbot.
+Formats prompt and queries Ollama LLM for responses.
+Handles different output types from LangChain.
+"""
+
 from langchain_ollama import ChatOllama
 from typer import prompt
 from prompt import format_referral_prompt
@@ -7,13 +13,16 @@ llm = ChatOllama(model="llama3", temperature=0, max_tokens=512, top_k=3)
 
 
 def get_llm_response(state: dict) -> str:
+    """
+    Formats prompt using user, PDF, and chat context, then queries LLM.
+    Returns response as string.
+    """
     prompt = format_referral_prompt(
         user_ctx=state["user_context"],
         pdf_ctx=state["pdf_context"],
         chat_history=state["chat_history"],
         user_input=state["input"],
     )   
-    #return llm.invoke(prompt)
     result = llm.invoke(prompt)
     # Unwrap any messaging object into a string
     if isinstance(result, AIMessage):
@@ -27,4 +36,3 @@ def get_llm_response(state: dict) -> str:
     # Fallback
     return str(result)
 
-   

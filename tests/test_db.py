@@ -1,3 +1,8 @@
+"""
+Test database functions for Capper chatbot.
+Validates user context retrieval, chat history, and saving chat turns.
+"""
+
 from db import get_user_context, get_chat_history, save_chat
 from datetime import datetime
 

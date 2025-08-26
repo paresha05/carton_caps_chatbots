@@ -1,3 +1,8 @@
+"""
+Test FastAPI chat endpoint for Capper chatbot.
+Validates response structure and error handling for missing fields.
+"""
+
 import pytest
 
 def test_chat_endpoint(client, sample_user):

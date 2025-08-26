@@ -1,3 +1,7 @@
+"""
+Pytest configuration and fixtures for Capper chatbot tests.
+Sets up test database, client, and handles teardown.
+"""
 import os
 import shutil
 import pytest
@@ -44,6 +48,9 @@ def test_db(monkeypatch, tmp_path_factory):
 
 @pytest.fixture
 def client():
+    """
+    Returns a FastAPI test client for API testing.
+    """
     from app import app
     return TestClient(app)
 
